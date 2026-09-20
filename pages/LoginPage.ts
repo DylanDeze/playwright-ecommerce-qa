@@ -5,6 +5,7 @@ export class LoginPage {
     readonly loginEmailInput: Locator;
     readonly loginPasswordInput: Locator;
     readonly submitButton: Locator;
+    readonly loginErrorMessage: Locator;
 
     constructor(private readonly page: Page) {
         this.page = page;
@@ -12,6 +13,7 @@ export class LoginPage {
         this.loginEmailInput = page.getByTestId('login-email-input');
         this.loginPasswordInput = page.getByTestId('login-password-input');
         this.submitButton = page.getByTestId('login-submit-button');
+        this.loginErrorMessage = page.getByText('Email ou mot de passe incorrect', { exact: true });
     }
 
     async goto(): Promise<void> {
