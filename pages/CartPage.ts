@@ -38,16 +38,12 @@ export class CartPage {
         return this.page.getByTestId(`quantity-${productId}`);
     }
 
-    parsePrice(price: string): number {
-        return Number(price.replace('€', '').trim().replace(',', '.'));
-    }
-
     removeProduct(productId: number): Promise<void> {
         return this.page.getByTestId(`remove-item-${productId}`).click();
     }
 
-    gotoCheckout(): Promise<void> {
-        return this.page.getByTestId('checkout-button').click();
+    async gotoCheckout(): Promise<void> {
+        await this.page.getByTestId('checkout-button').click();
     }
 
 }

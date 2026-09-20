@@ -1,15 +1,29 @@
 import { expect, test } from "../../fixtures/test.fixtures";
 
 test.describe('AUTHENTIFICATION', () => {
-    test('AUTH-001 - valid login', async ({
-        header,
-        loginPage,
-        page
-    }) => {
+    test('AUTH-001 - valid login',
+        { tag: '@smoke' }, async ({
+            header,
+            loginPage,
+            page
+        }) => {
         await loginPage.goto();
         await loginPage.login(process.env.TEST_USER_EMAIL!, process.env.TEST_USER_PASSWORD!);
         await expect(page).toHaveURL('/');
         await header.openAccountMenu();
         await expect(header.logoutButton).toBeVisible();
+    });
+
+    test('AUTH-002 - should reject login with invalid password',
+        { tag: '@negative' }, async ({
+            header,
+            loginPage,
+            page
+        }) => {
+        const invalidPassword = 'WrongPassword';
+        await loginPage.goto();
+        await loginPage.login(process.env.TEST_USER_EMAIL!, invalidPassword);
+        await expect(loginPage.loginErrorMessage).toBeVisible();
+        await expect(page).toHaveURL('/auth');
     });
 })

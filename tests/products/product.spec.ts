@@ -25,7 +25,7 @@ test.describe('Product', () => {
     });
 
     test('PROD-002 - should add a product to the cart',
-        { tag: '@smoke' }, async ({
+        { tag: '@smoke', }, async ({
             catalogPage,
             productPage,
             cartPage
