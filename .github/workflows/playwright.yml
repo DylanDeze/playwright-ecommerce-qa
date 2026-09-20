@@ -36,7 +36,7 @@ jobs:
         env:
           TEST_USER_EMAIL: ${{ secrets.TEST_USER_EMAIL }}
           TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
-        run: npx playwright test --grep @smoke
+        run: npx playwright test --project=chromium --grep @smoke
 
       - name: Upload Playwright report
         if: ${{ !cancelled() }}
@@ -72,7 +72,7 @@ jobs:
         env:
           TEST_USER_EMAIL: ${{ secrets.TEST_USER_EMAIL }}
           TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
-        run: npx playwright test
+        run: npx playwright test --project=chromium
 
       - name: Upload Playwright report
         if: ${{ !cancelled() }}
