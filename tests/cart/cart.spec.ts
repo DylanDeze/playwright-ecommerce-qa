@@ -25,7 +25,7 @@ test.describe('Cart', () => {
 
         const expectedTotal = unitPriceProduct * expectedQuantity;
         const totalCart = parsePrice(await cartPage.totalPrice.innerText());
-        await expect(totalCart).toBe(expectedTotal);
+        await expect(totalCart).toBeCloseTo(expectedTotal);
     });
 
     test('CART-002 - removes a product and recalculates the cart total', async ({

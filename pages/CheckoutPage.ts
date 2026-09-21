@@ -56,7 +56,7 @@ export class CheckoutPage {
     }
 
     async continueToPayment(): Promise<void> {
-        return await this.checkoutButton.click();
+        await this.checkoutButton.click();
     }
 
     async isRequiredValueMissing(field: Locator): Promise<boolean> {

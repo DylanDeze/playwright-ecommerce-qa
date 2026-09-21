@@ -156,7 +156,7 @@ Make sure the following are installed:
 Clone the repository:
 
 ```bash
-git clone <https://github.com/DylanDeze/playwright-ecommerce-qa>
+git clone https://github.com/DylanDeze/playwright-ecommerce-qa
 cd playwright-ecommerce-qa
 ```
 
@@ -405,4 +405,4 @@ These improvements would be introduced based on project risk and business value 
 
 QA Automation Engineer
 
-Built as a portfolio project to demonstrate practical QA automation skills with Playwright, TypeScript and CI/CD practices.
+Built as a portfolio project to demonstrate practical QA automation skills with Playwright, TypeScript and Continuous Integration practices.
